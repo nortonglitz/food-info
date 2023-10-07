@@ -56,6 +56,12 @@ export default function ResultPage({ params, searchParams: { q } }: ResultPagePr
 
     return (
         <main className="p-2 flex justify-center">
+            <dialog id="food_info_loading" className="modal">
+                <div className="modal-box max-w-[300px]">
+                    <p className="py-4">Loading food data...</p>
+                    <progress className="progress w-full"></progress>
+                </div>
+            </dialog>
             <div className="container">
                 <div className="flex justify-center">
                     <h1 className="flex items-center gap-1 ring-2 ring-neutral p-4 rounded my-4 w-fit">
@@ -83,7 +89,11 @@ export default function ResultPage({ params, searchParams: { q } }: ResultPagePr
                                     {foods.map(food =>
                                         <tr
                                             className="hover hover:cursor-pointer"
-                                            onClick={() => router.push(`/food/${food.fdcId}`)}
+                                            onClick={() => {
+                                                router.push(`/food/${food.fdcId}`)
+                                                const foodInfoLoadingEl = document.getElementById('food_info_loading') as HTMLDialogElement
+                                                if (foodInfoLoadingEl) foodInfoLoadingEl.showModal()
+                                            }}
                                             key={food.fdcId}
                                         >
                                             <td>{food.brandName || '-'}</td>
