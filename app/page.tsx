@@ -17,8 +17,9 @@ export default function HomePage() {
         <h1 className="xs:text-xs md:text-lg text-center mb-2">Look for the food that most suit your needs</h1>
         <InputFoodSearch />
       </div>
-      <div className="divider mt-[35vh]" />
-      <p className="italic">This app was created as a showcase, using an external API provided by <Link className="link" href="https://www.usda.gov/">U.S. DEPARTMENT OF AGRICULTURE</Link>, using the technlogies listed below.</p>
+      <div className="divider mt-[32vh]" />
+      <p>The source code is available in my profile on <Link className="link" href="https://github.com/nortonglitz/food-info">GitHub</Link>.</p>
+      <p className="italic">This app was created as a showcase, using an external API provided by <Link className="link" href="https://www.usda.gov/">U.S. DEPARTMENT OF AGRICULTURE</Link>, and technlogies listed below.</p>
       <div className="flex justify-around items-baseline flex-nowrap overflow-x-auto w-full mt-2">
         <Link href="https://nextjs.org/" target="_blank">
           <Technology name="NextJS" dir="/next.svg" />
@@ -26,16 +27,16 @@ export default function HomePage() {
         <Link href="https://git-scm.com/" target="_blank">
           <Technology name="Git" dir="/git.svg" />
         </Link>
-        <Link href="https://github.com/">
+        <Link href="https://github.com/" target="_blank">
           <Technology name="Github" dir="/github.svg" />
         </Link>
-        <Link href="https://react.dev/">
+        <Link href="https://react.dev/" target="_blank">
           <Technology name="React" dir="/react.svg" />
         </Link>
-        <Link href="https://tailwindcss.com/">
+        <Link href="https://tailwindcss.com/" target="_blank">
           <Technology name="TailwindCSS" dir="/tailwindcss.svg" />
         </Link>
-        <Link href="https://www.typescriptlang.org/">
+        <Link href="https://www.typescriptlang.org/" target="_blank">
           <Technology name="TypeScript" dir="/typescript.svg" />
         </Link>
       </div>
