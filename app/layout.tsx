@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={robotoSlab.className}>
         <nav className="navbar bg-neutral text-neutral-content">
           <Link href="/" className="flex flex-col items-start ml-2">
-            <span className="normal-case text-lg font-bold">FoodData</span>
+            <span className="normal-case text-lg font-bold">FoodInfo</span>
             <span className="text-xs normal-case font-normal italic">Experimental App</span>
           </Link>
         </nav>
