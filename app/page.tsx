@@ -35,6 +35,9 @@ export default function HomePage() {
         <Link href="https://tailwindcss.com/">
           <Technology name="TailwindCSS" dir="/tailwindcss.svg" />
         </Link>
+        <Link href="https://www.typescriptlang.org/">
+          <Technology name="TypeScript" dir="/typescript.svg" />
+        </Link>
       </div>
     </main>
   )
