@@ -29,6 +29,7 @@ export interface SearchResultFoodProps {
     dataType: dataType
     gtinUpc: string
     publishedDate: string
+    publicationDate: string
     brandOwner: string
     brandName: string
     ingredients: string
@@ -43,7 +44,9 @@ export interface SearchResultFoodProps {
     allHighlightFields: string
     score: number
     microbes: string[]
-    foodNutrients: string[]
+    foodNutrients: FoodNutrientProps[]
+    labelNutrients: LabelNutrientsProps
+    brandedFoodCategory: string
 }
 
 export interface SearchResultProps {
@@ -52,4 +55,28 @@ export interface SearchResultProps {
     currentPage: number
     totalPages: number
     foods: SearchResultFoodProps[]
+}
+
+export interface FoodNutrientProps {
+    type: string
+    id: string
+    amount: string
+    nutrient: {
+        id: number
+        number: string
+        name: string
+        rank: number
+        unitName: string
+    }
+    foodNutrientDerivation: {
+        id: number
+        code: string
+        description: string
+    }
+}
+
+export interface LabelNutrientsProps {
+    [key: string]: {
+        value: string | number
+    }
 }

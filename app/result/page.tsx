@@ -1,20 +1,26 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { SearchResultProps, SearchResultFoodProps } from '@/types'
-import { Undo2, Search } from 'lucide-react'
+import { Undo2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { Metadata } from 'next'
 
-export default function ResultPage() {
+interface ResultPageProps {
+    params: {}
+    searchParams: {
+        q: string
+    }
+}
+
+export default function ResultPage({ params, searchParams: { q } }: ResultPageProps) {
 
     const [result, setResult] = useState<SearchResultProps | null>(null)
     const [foods, setFoods] = useState<SearchResultFoodProps[] | null>(null)
     const [loading, setLoading] = useState(false)
-
     const [page, setPage] = useState(1)
 
-    const searchParams = useSearchParams()
-    const q = searchParams.get('q')
+    const router = useRouter()
 
     const getResult = async () => {
         setLoading(true)
@@ -26,6 +32,7 @@ export default function ResultPage() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
+                dataType: ['Branded'],
                 query: q,
                 pageSize: 20,
                 pageNumber: page
@@ -67,17 +74,21 @@ export default function ResultPage() {
                             <table className="table table-zebra table-pin-rows table-pin-cols">
                                 <thead>
                                     <tr className="text-lg">
-                                        <th>Description</th>
                                         <th>Brand Name</th>
-                                        <th>Score</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {foods.map(food =>
-                                        <tr key={food.fdcId} className="hover">
-                                            <td>{food.description}</td>
+                                        <tr
+                                            className="hover hover:cursor-pointer"
+                                            onClick={() => router.push(`/food/${food.fdcId}`)}
+                                            key={food.fdcId}
+                                        >
                                             <td>{food.brandName || '-'}</td>
-                                            <td>{food.score}</td>
+                                            <td>{food.description}</td>
+                                            <td>{food.foodCategory || '-'}</td>
                                         </tr>
                                     )}
                                 </tbody>
