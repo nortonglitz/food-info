@@ -35,11 +35,11 @@ export default async function FoodPage({ params: { fdcId } }: FoodPageProps) {
                 <div className="overflow-x-auto max-h-[60vh] ring-2 ring-neutral rounded mt-10 max-w-md p-2">
                     <table className="table table-zebra table-pin-rows table-pin-cols">
                         <caption className="text-xl font-medium">Nutrition Facts</caption>
-                        <tr className="font-semibold text-base">
-                            <td>Serving Size</td>
-                            <td>100{food.servingSizeUnit}</td>
-                        </tr>
                         <tbody>
+                            <tr className="font-semibold text-base">
+                                <td>Serving Size</td>
+                                <td>100{food.servingSizeUnit}</td>
+                            </tr>
                             {food.foodNutrients.map(nutrient =>
                                 <tr key={nutrient.id}>
                                     <td>{nutrient.nutrient.name}</td>
