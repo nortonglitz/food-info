@@ -20,19 +20,19 @@ export default async function FoodPage({ params: { fdcId } }: FoodPageProps) {
     const food: SearchResultFoodProps = await data.json()
 
     return (
-        <main className="flex justify-center p-6 md:p-8 lg:p-0">
-            <div className="container mt-4 flex justify-evenly flex-wrap">
+        <main className="flex justify-center p-6 md:p-8 lg:p-0 md:mt-10">
+            <div className="container mt-4 flex justify-evenly flex-wrap gap-5">
                 <div className="lg:max-w-prose">
-                    <div className="flex items-baseline">
+                    <div className="flex flex-wrap">
                         <h1 className="text-3xl font-bold text-secondary">{food.brandName || 'N/A'}</h1>
-                        <span className="ml-2 text-slate-600">by {food.brandOwner || 'N/A'}</span>
+                        <span className="text-slate-600 w-full">by {food.brandOwner || 'N/A'}</span>
                     </div>
                     <p className="italic text-xs mt-1">Published in {food.publicationDate}</p>
                     <p className="mt-2 text-sm text-justify"><b>Ingredients:</b> {food.ingredients.toLocaleLowerCase() || 'N/A'}</p>
                     <p className="mt-2 text-sm text-justify"><b>Category:</b> {food.brandedFoodCategory || 'N/A'}</p>
                 </div>
 
-                <div className="overflow-x-auto max-h-[60vh] ring-2 ring-neutral rounded mt-10 max-w-md p-2">
+                <div className="overflow-x-auto max-h-[60vh] ring-2 ring-neutral rounded mt-2 max-w-md p-2">
                     <table className="table table-zebra table-pin-rows table-pin-cols">
                         <caption className="text-xl font-medium">Nutrition Facts</caption>
                         <tbody>

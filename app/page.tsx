@@ -20,7 +20,7 @@ export default function HomePage() {
         <InputFoodSearch />
       </div>
       <div className="divider mt-[35vh]" />
-      <p className="italic text-sm text-center">This app was created as a showcase, using an external API provided by <Link className="link" target="_blank" href="https://www.usda.gov/">U.S. DEPARTMENT OF AGRICULTURE</Link>, and technologies listed below.</p>
+      <p className="italic text-sm text-center">This app was created as a showcase, using an external API provided by the <Link className="link" target="_blank" href="https://www.usda.gov/">USDA</Link> and the technologies listed below.</p>
       <div className="flex justify-around items-baseline flex-wrap overflow-x-auto w-full gap-2">
         <Technology name="NextJS" dir="/next.svg" href="https://nextjs.org/" />
         <Technology name="Git" dir="/git.svg" href="https://git-scm.com/" />
